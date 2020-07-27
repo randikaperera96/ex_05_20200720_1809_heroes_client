@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css"
 import Hero from './component/Hero';
+import Heroes from "./component/Heroes";
 
 // let firstElement = <h1>Hello World!</h1>; // not a good practice to write HTML code in index.js
 // ReactDOM.render(firstElement, document.getElementById('root'));
-ReactDOM.render(<Hero />, document.getElementById('root'));
+ReactDOM.render(<Heroes />, document.getElementById('root'));
 
 
 

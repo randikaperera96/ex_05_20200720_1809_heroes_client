@@ -13,15 +13,15 @@ class Hero extends Component {
         return (
             <React.Fragment>
                 {/* <h1 style="width:'18px'">Avengers incoming...</h1> // when using inline CSS we should use JS obects instesd of plain CSS */}
-                <h1 style={{ width: "18rem", fontSize: "90px" }}>Avengers incoming...</h1>
+                {/* <h1 style={{ width: "18rem", fontSize: "90px" }}>Avengers incoming...</h1> */}
                 {/* <button>Click Here {this.state.heroId}</button> */}
-                <button type="button" className="btn btn-primary">
+                {/* <button type="button" className="btn btn-primary">
                     Click on Avenger
                 </button>
                 <br />
                 <p>{this.isHero()}</p>
                 <br />
-                <br />
+                <br /> */}
                 <div>
                     <div className="card" style={{ width: '18rem' }}>
                         <img src={this.state.imgURL} className="card-img-top" alt="..." />
@@ -34,7 +34,9 @@ class Hero extends Component {
                             </ul>
                             <button className="btn btn-primary" onClick={()=>{this.likeAvenger(2)}} >
                                 Like <span className="badge badge-light">                                    {this.state.likeCount}                                </span>
-                            </button> {/*[ this.likeAvenger() ]-calls method on render [ this.likeAvenger ] method reference */}
+                            </button> 
+                            {/*[ this.likeAvenger() ]-calls method on render [ this.likeAvenger ] method reference */}
+                            {/* To pass value to method */}
                         </div>
                     </div>
                 </div>
