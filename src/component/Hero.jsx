@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class Hero extends Component {
     state = {
-        heroId: 99,
+        heroId: -568,
         imgURL: "https://i.pinimg.com/236x/9b/76/75/9b767505f5a5df3df348a898ba4ae8bb.jpg",
-        movies: ['movie 1', 'movie2', 'lol'],
-        likeCount: 0
+        movies: this.props.movie,
+        likeCount: this.props.likeCount
     };
     render() {
         // return <h1>Avengers incoming...</h1> //'()' not required for single element
@@ -32,9 +32,10 @@ class Hero extends Component {
                                 {this.showMovies()}
                                 {/* {this.state.movies.map(movie => <li>{movie}</li>)} */}
                             </ul>
-                            <button className="btn btn-primary" onClick={()=>{this.likeAvenger(2)}} >
+                            <button className="btn btn-primary" onClick={() => { this.likeAvenger(2) }} >
                                 Like <span className="badge badge-light">                                    {this.state.likeCount}                                </span>
-                            </button> 
+                            </button>
+                            {this.props.likeCount}
                             {/*[ this.likeAvenger() ]-calls method on render [ this.likeAvenger ] method reference */}
                             {/* To pass value to method */}
                         </div>
