@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class Hero extends Component {
     state = {
-        heroId: -568,
-        imgURL: "https://i.pinimg.com/236x/9b/76/75/9b767505f5a5df3df348a898ba4ae8bb.jpg",
-        movies: this.props.movie,
-        likeCount: this.props.likeCount
+        // heroId: this.props.key,
+        // imgURL: "https://i.pinimg.com/236x/9b/76/75/9b767505f5a5df3df348a898ba4ae8bb.jpg",
+        // movies: this.props.movie,
+        // likeCount: this.props.likeCount
     };
     render() {
         // return <h1>Avengers incoming...</h1> //'()' not required for single element
@@ -24,10 +24,10 @@ class Hero extends Component {
                 <br /> */}
                 <div>
                     <div className="card" style={{ width: '18rem' }}>
-                        <img src={this.state.imgURL} className="card-img-top" alt="..." />
+                        <img src={this.props.avenger.imgURL} className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <h5 className="card-title">Avenger Name</h5>
-                            <p className="card-text"></p>
+                            <h5 className="card-title">{this.props.avenger.name}</h5>
+                            <p className="card-text">{this.props.avenger.birthName}</p>
                             <ul>
                                 {this.showMovies()}
                                 {/* {this.state.movies.map(movie => <li>{movie}</li>)} */}
@@ -35,7 +35,7 @@ class Hero extends Component {
                             <button className="btn btn-primary" onClick={() => { this.likeAvenger(2) }} >
                                 Like <span className="badge badge-light">                                    {this.state.likeCount}                                </span>
                             </button>
-                            {this.props.likeCount}
+                            {this.props.avenger.likeCount}
                             {/*[ this.likeAvenger() ]-calls method on render [ this.likeAvenger ] method reference */}
                             {/* To pass value to method */}
                         </div>
@@ -46,14 +46,14 @@ class Hero extends Component {
     }
 
     isHero() {
-        return (this.state.heroId > 0) ? "Is an Avenger" : "Not an Avenger";
+        return (this.props.avenger.heroId > 0) ? "Is an Avenger" : "Not an Avenger";
     }
 
     showMovies() {
         // return this.state.movies.map(movie => <li>{movie}</li>);
         // this.state.movies = [];
-        if (this.state.movies.length === 0) return <p>No movies available</p>
-        return this.state.movies.map((movie, i) => <li key={i}>{movie}</li>);
+        if (this.props.avenger.movies.length === 0) return <p>No movies available</p>
+        return this.props.avenger.movies.map((movie, i) => <li key={i}>{movie}</li>);
     }
 
     // likeAvenger = () => {
