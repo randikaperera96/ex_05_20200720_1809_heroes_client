@@ -25,12 +25,32 @@ class Heroes extends Component {
                                 // movie={["Movie 1", "Movie 22", "Movie 99"]}
                                 // imgURL={avenger.imgURL}
                                 avenger={avenger}
+                                onDelete={() => this.deleteAvenger(avenger.id)}
+                                onLike={() => this.likeAvengerDBUpdate(avenger)}
                             />
                         </div>
                     )))}
                 </div>
             </div>
         );
+    }
+
+    async likeAvengerDBUpdate(avenger) {
+        await axios.put(`http://localhost:5000/api/heroes/${avenger.id}`, {
+            heroName: avenger.name,
+            likeCount: avenger.likeCount + 1
+        });
+
+    }
+
+    async deleteAvenger(avengerToDeleteId) {
+        // axios.delete("http://localhost:5000/api/heroes/" + avengerToDeleteId); 
+        await axios.delete(`http://localhost:5000/api/heroes/${avengerToDeleteId}`);
+        // NOTE: use `` [bactics when concatinating ] instead of [ + ] 
+        let newAvengers = this.state.allAvengers.filter(
+            (avenger) => avenger.id !== avengerToDeleteId
+        );
+        this.setState({ allAvengers: newAvengers });
     }
 
     async componentDidMount() {

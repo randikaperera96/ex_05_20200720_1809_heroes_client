@@ -32,12 +32,30 @@ class Hero extends Component {
                                 {this.showMovies()}
                                 {/* {this.state.movies.map(movie => <li>{movie}</li>)} */}
                             </ul>
-                            <button className="btn btn-primary" onClick={() => { this.likeAvenger(2) }} >
-                                Like <span className="badge badge-light">                                    {this.state.likeCount}                                </span>
+                            {
+                                /*<button className="btn btn-primary" onClick={() => { this.likeAvenger(2) }} >
+                                    Like
+                                    <span className="badge badge-light">
+                                        {/* {this.state.likeCount} *//*}
+                        {this.props.avenger.likeCount}
+                    </span>
+                </button>
+                */
+                            }
+                            <button className="btn btn-primary" onClick={this.props.onLike} >
+                                Like
+                                <span className="badge badge-light">
+                                    {/* {this.state.likeCount} */}
+                                    {this.props.avenger.likeCount}
+                                </span>
                             </button>
                             {this.props.avenger.likeCount}
                             {/*[ this.likeAvenger() ]-calls method on render [ this.likeAvenger ] method reference */}
                             {/* To pass value to method */}
+                            {" "}
+                            <button className="btn btn-danger" onClick={this.props.onDelete} >
+                                Delete
+                            </button>
                         </div>
                     </div>
                 </div>
